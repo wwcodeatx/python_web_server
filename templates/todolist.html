@@ -1,0 +1,69 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    WWC-ATX: Python Group - To Do List
+{% endblock%}
+
+{% block main %}
+<div>
+  <h1><strong>Add a Task</strong></h1>
+</div>
+<div>
+  <!-- create a form to enter a task to the list -->
+  <form action="/add_task" method="post">
+    <input autocomplete="off" autofocus name="task" placeholder="Task" type="text">
+    <input type="submit" value="Add Task">
+  </form>
+</div>
+
+<div class="container">
+  <table class="table table-striped">
+    <caption><strong>CURRENT TODO LIST</strong></caption>
+    <tr>
+       <thead>
+        <tr>
+          <th>Task</th>
+        <tr>
+       </thead>
+    </tr>
+    <tr>
+      <tbody>
+        <!-- loop through the database entries to display them in this table -->
+        {% for task in tasks %}
+          <tr>
+            <td>{{ task["task"] }}</td>
+            <td>
+              <form action="edit" method="post">
+                <input name="id" type="hidden" value="{{task.id}}">
+                <input type="submit" value="Edit">
+              </form>
+            </td>
+            <td>
+              <form action="complete" method="post">
+                <input name="id" type="hidden" value="{{task.id}}">
+                <input type="submit" value="Completed">
+              </form>
+            </td>
+            <td>
+              <form action="delete" method="post">
+                <input name="id" type="hidden" value="{{task.id}}">
+                <input type="submit" value="Delete">
+              </form>
+            </td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </tr>
+    <tr>
+      <tfoot><tfoot>
+    </tr>
+  </table>
+</div>
+
+{% endblock %}
+
+{% block footer %}
+<div style="padding-bottom: 20px">
+Copyright &#169;  CC + Anaiq 2022
+</div>
+{% endblock %}
