@@ -131,16 +131,15 @@ def complete():
     print("something here")
 
 
-# @app.route("/edit", methods=["GET","POST"])
-# def edit():
-#     print("editing")
-#     # access for data
-#     id = request.form.get("id")
-#     # debug
-#     print(f"debug: id: {id}")
-#     # update table with new task
-#     # db.execute("UPDATE todolist SET task = ? WHERE id=?", task, id)
-#     return redirect("/add_task")
+@app.route("/edit", methods=["GET","POST"])
+def edit():
+    # access form data
+    id = request.form.get("id")
+    if id:
+        edited_input = request.form.get("edit")
+    # update table with new task
+    db.execute("UPDATE todolist SET task = ? WHERE id=?", edited_input, id)
+    return redirect("/add_task")
 
 
 # @app.route("/logout")
