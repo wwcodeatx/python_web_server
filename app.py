@@ -114,7 +114,7 @@ def add_task():
 def delete():
     # access form data
     id = request.form.get("id")
-    print(f"debug- id1: {id}")
+    print(f"debug- id: {id}")
     if id:
         # change task status of deleted from 'false' to 'true' in todolist
         db.execute("UPDATE todolist SET deleted ='true' WHERE id = ?", id)
@@ -123,12 +123,60 @@ def delete():
     else:
         print("debug- no id found")
 
-
+    # return to todolist
     return redirect("/add_task")
+
+
+# undelete button on history.html page
+@app.route("/undelete", methods=["GET", "POST"])
+def undelete():
+    # access form data
+    id = request.form.get("id")
+    print(f"debug- id: {id}")
+    if id:
+        # change task status of deleted from 'true' to 'false' in todolist
+        db.execute("UPDATE todolist SET deleted ='false' WHERE id = ?", id)
+        # change task status of deleted from 'false' to 'true' in history
+        db.execute("UPDATE history SET deleted ='false' WHERE id = ?", id)
+    else:
+        print("debug- no id found")
+
+    # return to todolist
+    return redirect("/add_task")
+
 
 @app.route("/complete", methods=["GET", "POST"])
 def complete():
-    print("something here")
+    #  access for data
+    id = request.form.get("id")
+    print(f"debug- id: {id}")
+    if id:
+        # change completed status of task from 'false' to 'true' in todolist
+        db.execute("UPDATE todolist SET completed='false' to 'true' where id=?", id)
+        # change completed status of task from 'false' to 'true' in history
+        db.execute("UPDATE history SET completed='false' to 'true' where id=?", id)
+    else:
+        print("debug- no id found")
+    
+    # return to todolist
+    return redirect("/add_task")
+
+
+@app.route("/incomplete", methods=["GET", "POST"])
+def incomplete():
+    #  access for data
+    id = request.form.get("id")
+    print(f"debug- id: {id}")
+    if id:
+        # change completed status of task from 'true' to 'false' in todolist
+        db.execute("UPDATE todolist SET completed='true' to 'false' where id=?", id)
+        # change completed status of task from 'false' to 'true' in history
+        db.execute("UPDATE history SET completed='true' to 'false' where id=?", id)
+    else:
+        print("debug- no id found")
+    
+    # return to todolist
+    return redirect("/add_task")
 
 
 @app.route("/edit", methods=["GET","POST"])
@@ -139,6 +187,8 @@ def edit():
         edited_input = request.form.get("edit")
     # update table with new task
     db.execute("UPDATE todolist SET task = ? WHERE id=?", edited_input, id)
+
+    # return to todolist
     return redirect("/add_task")
 
 
