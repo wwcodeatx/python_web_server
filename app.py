@@ -110,6 +110,16 @@ def add_task():
         return render_template("todolist.html", tasks=tasks)
 
 
+@app.route("/history")
+def history():
+    # access history of tasks
+    histories = db.execute("SELECT id, task from history")
+    # debug:
+    print(f"debug: history of all tasks {histories}")
+
+    return render_template("history.html", histories=histories)
+
+
 @app.route("/delete", methods=["GET", "POST"])
 def delete():
     # access form data

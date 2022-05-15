@@ -66,6 +66,49 @@ h4 {
     padding: 1rem 2rem;
 }
 
+.text-start {
+    text-align: left;
+}
+
+.text-end{
+    text-align: right;
+}
+
+table {
+    border: 1px solid black;
+}
+
+th {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+td.border-0.fw-bold.text-end {
+    border: none;
+    font-weight: bold;
+    text-align:right;
+}
+
+caption {
+    /* font-size: 2em; */
+    text-align: left;
+    caption-side: top;
+    padding: 10px;
+    color: black;
+}
+
+/* add a strikethrough when clicked on */
+tr td.checked {
+    text-decoration: line-through;
+    text-decoration-color:crimson;
+}
+
+
+/* Colors for brand */
+nav .navbar-brand .wwc
+{
+    color: #007a7c;
+}
 
 
 .text-start {
@@ -98,4 +141,3 @@ caption {
     padding: 10px;
     color: black;
 }
-

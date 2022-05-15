@@ -22,7 +22,7 @@
     <tr>
        <thead>
         <tr>
-          <th>Task</th>
+          <th>Tasks</th>
         <tr>
        </thead>
     </tr>
@@ -30,8 +30,8 @@
       <tbody>
         <!-- loop through the database entries to display them in this table -->
         {% for task in tasks %}
-          <tr>
-            <td>{{ task["task"] }}</td>
+          <tr id="table" class="checked" >
+            <td >{{ task["task"] }}</td>
             <td>
               <form action="edit" method="post">
                 <input name="id" type="hidden" value="{{task.id}}">
@@ -42,13 +42,13 @@
             <td>
               <form action="complete" method="post">
                 <input name="id" type="hidden" value="{{task.id}}">
-                <input type="submit" value="Completed">
+                <input id="complete" type="submit" value="Completed">
               </form>
             </td>
             <td>
               <form action="delete" method="post">
                 <input name="id" type="hidden" value="{{task.id}}">
-                <input type="submit" value="Delete">
+                <input id="delete" type="submit" value="Delete">
               </form>
             </td>
           </tr>

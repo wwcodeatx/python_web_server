@@ -1,0 +1,46 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    WWC-ATX: Python Group - To Do List
+{% endblock%}
+
+{% block main %}
+
+  <table class="table table-striped">
+    <caption><strong>TODO LIST HISTORY</strong></caption>
+    <tr>
+       <thead>
+        <tr>
+          <th>History of Tasks</th>
+        <tr>
+       </thead>
+    </tr>
+    <tr>
+      <tbody>
+        <!-- loop through the database entries to display them in this table -->
+        {% for history in histories %}
+          <tr id="table" class="checked" >
+            <td class="text-start">{{ history["task"] }}</td>
+            <td>
+              <form action="undelete" method="post">
+                <input name="id" type="hidden" value="{{history.id}}">
+                <input id="undelete" type="submit" value="Undelete">
+              </form>
+            </td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </tr>
+    <tr>
+      <tfoot><tfoot>
+    </tr>
+  </table>
+</div>
+
+{% endblock %}
+
+{% block footer %}
+<div style="padding-bottom: 20px">
+Copyright &#169;  CC + Anaiq 2022
+</div>
+{% endblock %}
