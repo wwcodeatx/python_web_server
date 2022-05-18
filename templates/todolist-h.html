@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+    <!--link animate.css stylesheet -->
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <!-- link stylesheet -->
+    <link href="/static/todo-stylesheet.css" type="text/css" rel="stylesheet">
+
+    <title> WWC-ATX: Python Group - To Do List</title>
+  </head>
+  <body>
+    <main class="d-flex align-items-center h-100">
+    This is the main body
+    <div id="todolist">
+      <form action="" method="get" class="form">
+        <div class="row">
+          <div>
+            <label for="s-date">Start Date</label>
+            <input type="date" name="s-date" id="s-date" required>
+          </div>
+          <div>
+            <label for="c-date">Completion Date</label>
+            <input type="date" name="c-date" id="c-date" required>
+          </div>
+          <div class="col">
+          <label for="item"> To Do Item:</label>
+          <input type="text" name="task" id="task" placeholder="Enter item here" required>
+          <input type="submit" value="Add">
+          </div>
+          </div>
+            <div class="row">
+              <div class="col">
+                <!-- <input type="submit" value="Add">-->
+                <input type="submit" value="Edit">
+                <input type="submit" value="Delete">
+              </div>
+              </div>
+            <div class="row">
+              <div class="col">
+                <label for="item">Important & Urgent</label>
+                <input type="checkbox" value="Important">
+              </div>
+              <div class="col">
+                <label for="item">Un-Important & Urgent</label>
+                <input type="checkbox" value="Important">
+              </div>
+              <div class="col">
+                <label for="item">Important & Non-Urgent</label>
+                <input type="checkbox" value="Important">
+              </div>
+              <div class="col">
+                <label for="item">Un-Important & Non-Urgent:</label>
+                <input type="checkbox" value="Important">
+            </div>
+          </div>
+          </div>
+          </div>
+      </form>
+    </div>
+    <div></div>
+    <div></div>
+    <div></div>
+    </main>
+
+    <footer class="mb-5 small text-center text-muted">
+        Copyright &#169;  CC + Anaiq 2022
+    </footer>
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+  </body>
+</html>
