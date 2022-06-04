@@ -1,18 +1,36 @@
-<!doctype html>
-
+<!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <head>
+    <title>Index</title>
+    <script>
+        var toDoList = [];
+        function addtask() {
+            task = document.getElementById('task').value;
+            document.getElementById('task').value ='';
+            toDoList.push(task);
+            console.log('button to be clicked');
+            console.log(toDoList);
+        }
+    </script>
+  </head>
+  <body>
+    <div>
+        <h1><strong>Add a Task</strong></h1>
+    </div>
 
-  <title>To do list</title>
-  <link rel="stylesheet" href="index.css">
+    <div>
+        <ul>
+            
+        </ul>
+    </div>
 
-</head>
-
-<body>
-  <!-- your content here... -->
-  <script src="js/scripts.js"></script>
-To do list
-</body>
+      <div>
+        <!-- create a form to enter a task to the list -->
+        <input id="task" autocomplete="off" autofocus name="task" placeholder="Task" type="text">
+        <button name="addtask" value="Add Task" onclick='addtask()'>Add task</button>
+      </div>
+      <div id="to-do-list" style="color:red;" > 
+    </div>
+    
+  </body>
 </html>
